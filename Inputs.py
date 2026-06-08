@@ -1,4 +1,4 @@
-def validar_es_numero(cadena):
+def validar_es_numero(cadena: str) -> bool:
     """Verifica manualmente si una cadena contiene solo digitos (algoritmia propia)."""
     if len(cadena) == 0:
         return False
@@ -11,7 +11,8 @@ def validar_es_numero(cadena):
             break # Detenemos el bucle si encontramos algo que no es numero
     return es_numerico
 
-def pedir_entero_positivo(mensaje):
+
+def pedir_entero_positivo(mensaje: str) -> int:
     """Pide un entero mayor a cero usando validacion manual."""
     valido = False
     while not valido:
@@ -25,7 +26,8 @@ def pedir_entero_positivo(mensaje):
         else:
             print("Error: tenes que ingresar un numero entero")
 
-def pedir_opcion_menu():
+
+def pedir_opcion_menu() -> int:
     """Pide una opcion del menu entre 0 y 12 con validacion manual."""
     while True:
         entrada = input("Ingrese una opcion: ")

@@ -1,7 +1,7 @@
 from Inputs import pedir_entero_positivo
 
 
-def cargar_votos(cantidad_partidos):
+def cargar_votos(cantidad_partidos: int) -> list:
     """Pide los votos de cada partido y los devuelve en una lista."""
     votos = []
     i = 0
@@ -12,7 +12,7 @@ def cargar_votos(cantidad_partidos):
     return votos
 
 
-def calcular_total(votos):
+def calcular_total(votos: list) -> int:
     """Devuelve la suma de todos los votos."""
     total = 0
     i = 0
@@ -22,21 +22,21 @@ def calcular_total(votos):
     return total
 
 
-def calcular_porcentaje(cantidad, total):
+def calcular_porcentaje(cantidad: int, total: int) -> float:
     """Devuelve el porcentaje que representa cantidad sobre total."""
     if total == 0:
-        return 0
+        return 0.0
     return (cantidad * 100) / total
 
 
-def calcular_promedio(votos):
+def calcular_promedio(votos: list) -> float:
     """Devuelve el promedio de los votos."""
     if len(votos) == 0:
-        return 0
+        return 0.0
     return calcular_total(votos) / len(votos)
 
 
-def buscar_indice_maximo(votos):
+def buscar_indice_maximo(votos: list) -> int:
     """Devuelve el indice del partido con mas votos."""
     indice = 0
     i = 1
@@ -47,7 +47,7 @@ def buscar_indice_maximo(votos):
     return indice
 
 
-def buscar_indice_minimo(votos):
+def buscar_indice_minimo(votos: list) -> int:
     """Devuelve el indice del partido con menos votos."""
     indice = 0
     i = 1
@@ -58,7 +58,7 @@ def buscar_indice_minimo(votos):
     return indice
 
 
-def buscar_menos_votados(votos):
+def buscar_menos_votados(votos: list) -> list:
     """Devuelve los indices de todos los partidos con la menor cantidad de votos."""
     indice_min = buscar_indice_minimo(votos)
     minimo = votos[indice_min]
@@ -71,7 +71,7 @@ def buscar_menos_votados(votos):
     return indices
 
 
-def filtrar_menores_a_porcentaje(votos, limite):
+def filtrar_menores_a_porcentaje(votos: list, limite: int) -> list:
     """Devuelve los indices de los partidos con menos del 'limite'% del total."""
     total = calcular_total(votos)
     indices = []
@@ -84,7 +84,7 @@ def filtrar_menores_a_porcentaje(votos, limite):
     return indices
 
 
-def filtrar_mayores_a_cantidad(votos, limite):
+def filtrar_mayores_a_cantidad(votos: list, limite: int) -> list:
     """Devuelve los indices de los partidos con mas de 'limite' votos."""
     indices = []
     i = 0
@@ -95,7 +95,7 @@ def filtrar_mayores_a_cantidad(votos, limite):
     return indices
 
 
-def filtrar_arriba_del_promedio(votos):
+def filtrar_arriba_del_promedio(votos: list) -> list:
     """Devuelve los indices de los partidos por encima del promedio."""
     promedio = calcular_promedio(votos)
     indices = []
@@ -107,7 +107,7 @@ def filtrar_arriba_del_promedio(votos):
     return indices
 
 
-def hay_segunda_vuelta(votos):
+def hay_segunda_vuelta(votos: list) -> bool:
     """Devuelve True si ningun partido supera el 50% (o lo iguala)."""
     total = calcular_total(votos)
     indice_ganador = buscar_indice_maximo(votos)
@@ -115,12 +115,12 @@ def hay_segunda_vuelta(votos):
     return porcentaje <= 50
 
 
-def hardcodear_votos():
+def hardcodear_votos() -> list:
     """Devuelve el vector hardcodeado del punto 11."""
     return [888, 555, 333, 1850, 999, 777, 1400, 180, 2500, 60]
 
 
-def ordenar_nombres(lista):
+def ordenar_nombres(lista: list) -> list:
     """Ordena alfabeticamente una lista de nombres con Bubble Sort."""
     nombres = lista.copy()
     n = len(nombres)

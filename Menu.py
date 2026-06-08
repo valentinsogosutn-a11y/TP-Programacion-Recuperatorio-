@@ -6,7 +6,7 @@ from Prints import (
     mostrar_listado,
     mostrar_filtrados_menos,
     mostrar_filtrados_mas,
-    mostrar_arriba_promedio,
+    mostrar_listado as mostrar_arriba_promedio, # Nota por si cambiaste el import
     mostrar_menos_votado,
     mostrar_segunda_vuelta,
     mostrar_nombres_ordenados,
@@ -15,7 +15,7 @@ from Prints import (
 CANTIDAD_PARTIDOS = 5
 
 
-def ejecutar_menu():
+def ejecutar_menu() -> None:
     """Bucle principal: muestra el menu y ejecuta la opcion elegida por el usuario."""
     votos = []
     votos_cargados = False
@@ -63,6 +63,8 @@ def ejecutar_menu():
                 elif opcion == 7:
                     mostrar_filtrados_mas(votos, 1000)
                 elif opcion == 8:
+                    # Aquí usas el import que corresponda a tus funciones
+                    from Prints import mostrar_arriba_promedio
                     mostrar_arriba_promedio(votos)
                 elif opcion == 9:
                     mostrar_menos_votado(votos)

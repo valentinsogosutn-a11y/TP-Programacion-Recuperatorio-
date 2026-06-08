@@ -11,7 +11,7 @@ from Funciones import (
 )
 
 
-def mostrar_menu():
+def mostrar_menu() -> None:
     """Imprime el menu de opciones del programa."""
     print("")
     print("===== SISTEMA DE ELECCIONES - CENTRO DE ESTUDIANTES UTN FRA =====")
@@ -31,13 +31,13 @@ def mostrar_menu():
     print("=================================================================")
 
 
-def mostrar_mensaje(msg):
+def mostrar_mensaje(msg: str) -> None:
     """Imprime un mensaje generico con un salto de linea antes."""
     print("")
     print(msg)
 
 
-def mostrar_listado(votos):
+def mostrar_listado(votos: list) -> None:
     """Muestra todos los partidos con sus votos, porcentajes y totales."""
     total = calcular_total(votos)
     print("")
@@ -52,7 +52,7 @@ def mostrar_listado(votos):
         i = i + 1
 
 
-def mostrar_filtrados_menos(votos, limite):
+def mostrar_filtrados_menos(votos: list, limite: int) -> None:
     """Muestra los partidos con menos del 'limite'% del total y el acumulado."""
     total = calcular_total(votos)
     indices = filtrar_menores_a_porcentaje(votos, limite)
@@ -72,7 +72,7 @@ def mostrar_filtrados_menos(votos, limite):
     print(f"Porcentaje acumulado de la busqueda: {acumulado:.2f}%")
 
 
-def mostrar_filtrados_mas(votos, limite):
+def mostrar_filtrados_mas(votos: list, limite: int) -> None:
     """Muestra los partidos con mas de 'limite' votos, mas suma, cantidad y promedio."""
     total = calcular_total(votos)
     indices = filtrar_mayores_a_cantidad(votos, limite)
@@ -95,7 +95,7 @@ def mostrar_filtrados_mas(votos, limite):
     print(f"Promedio de votos: {promedio_busqueda:.2f}")
 
 
-def mostrar_arriba_promedio(votos):
+def mostrar_arriba_promedio(votos: list) -> None:
     """Muestra los partidos por encima del promedio y el porcentaje acumulado."""
     total = calcular_total(votos)
     promedio = calcular_promedio(votos)
@@ -117,7 +117,7 @@ def mostrar_arriba_promedio(votos):
     print(f"Porcentaje acumulado de la busqueda: {acumulado:.2f}%")
 
 
-def mostrar_menos_votado(votos):
+def mostrar_menos_votado(votos: list) -> None:
     """Muestra el o los partidos menos votados (contempla empates)."""
     total = calcular_total(votos)
     indices = buscar_menos_votados(votos)
@@ -135,7 +135,7 @@ def mostrar_menos_votado(votos):
             i = i + 1
 
 
-def mostrar_segunda_vuelta(votos):
+def mostrar_segunda_vuelta(votos: list) -> None:
     """Muestra si hay segunda vuelta y, si no, los datos del ganador."""
     total = calcular_total(votos)
     print("")
@@ -149,7 +149,7 @@ def mostrar_segunda_vuelta(votos):
         print(f"Partido ganador: Partido {indice + 1} con {votos[indice]} votos ({porc:.2f}%)")
 
 
-def mostrar_nombres_ordenados(nombres):
+def mostrar_nombres_ordenados(nombres: list) -> None:
     """Imprime la lista de nombres ya ordenada alfabeticamente."""
     print("")
     print("----- PARTIDOS ORDENADOS ALFABETICAMENTE (A-Z) -----")
